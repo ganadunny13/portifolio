@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Gabriela Alves Rodrigues</title>
+    <!-- Link para o Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Resetando margens e padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Estilos gerais */
+        body {
+            background-color: #000; /* Fundo da página totalmente preto */
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        header {
+            background-color: #000; /* Fundo preto para o cabeçalho */
+            padding: 30px;
+            border-radius: 10px 10px 0 0;
+        }
+
+        /* Estilo da imagem de perfil */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 5px solid #4CAF50;
+        }
+
+        /* Títulos e parágrafos */
+        h1 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ccc;
+        }
+
+        /* Estilo das seções */
+        .secao {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #000; /* Fundo preto para os blocos */
+            border: 2px solid #4CAF50; /* Neon verde nas bordas dos blocos */
+            box-shadow: 0 0 10px 2px rgba(76, 175, 80, 0.8); /* Efeito neon nas bordas */
+        }
+
+        .secao h2 {
+            font-size: 1.3rem; /* Tamanho do título */
+            margin-bottom: 15px;
+        }
+
+        .quadros {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .btn-sobre, .btn-habilidades, .btn-contato, .btn-github {
+            background-color: #006400; /* Verde escuro */
+            color: white;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.1s ease; /* Botões mais rápidos */
+        }
+
+        .btn-sobre:hover, .btn-habilidades:hover, .btn-contato:hover, .btn-github:hover {
+            background-color: #004d00; /* Tom mais escuro do verde */
+            transform: scale(1.05);
+        }
+
+        /* Projetos */
+        #projetos h2 {
+            font-size: 1.5rem;
+            color: #ccc;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .projetos {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .projeto {
+            padding: 25px;
+            border-radius: 10px;
+            width: 30%;
+            text-align: left;
+            background-color: #000; /* Fundo preto para os projetos */
+            border: 2px solid #4CAF50; /* Neon verde nas bordas dos projetos */
+            box-shadow: 0 0 10px 2px rgba(76, 175, 80, 0.8); /* Efeito neon nas bordas dos projetos */
+        }
+
+        .projeto h3 {
+            font-size: 1.5rem;
+            color: #4CAF50; /* Verde neon */
+            margin-bottom: 15px;
+        }
+
+        .projeto p {
+            color: #ccc;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            display: none; /* Inicialmente ocultando a descrição */
+        }
+
+        .show-description {
+            display: block; /* Mostra a descrição quando o botão é clicado */
+        }
+
+        /* Estilo da seção "O Código é a Minha Arte" */
+        .background-image {
+            background-image: url('https://www.w3schools.com/w3images/forest.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 80px 0;
+            border-radius: 10px;
+            margin-top: 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .background-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+        }
+
+        .background-image h2 {
+            font-size: 2.5rem;
+            z-index: 1;
+            margin-bottom: 20px;
+        }
+
+        .background-image p {
+            font-size: 1.3rem;
+            z-index: 1;
+        }
+
+        /* Estilo dos links de contato */
+        .contato-links a {
+            color: #fff;
+            font-size: 1.3rem;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        .contato-links a:hover {
+            color: #4CAF50;
+        }
+
+        .contato-links .fa {
+            margin-right: 10px;
+        }
+
+        /* Estilo dos ícones */
+        .fa {
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .fa:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="minha_foto.jpg" alt="Foto de perfil" class="profile-img">
+            <h1>Gabriela Alves Rodrigues</h1>
+            <p>Desenvolvedora apaixonada por tecnologia e inovação.</p>
+        </header>
+
+        <!-- Seções de quadros -->
+        <div class="quadros">
+            <section id="sobre" class="secao">
+                <h2><i class="fas fa-graduation-cap section-icon"></i>Sobre</h2>
+                <button class="btn-sobre" onclick="toggleDescription('sobre')"><i class="fas fa-graduation-cap"></i></button>
+                <div id="sobre-frase" class="descricao">
+                    <p>Sou uma desenvolvedora apaixonada por tecnologia e inovação. Tenho experiência nas linguagens Java, JavaScript, TypeScript, Python, HTML5, CSS, MySQL, Django e API. Aprendo rápido e sei trabalhar muito bem em equipe.</p>
+                </div>
+            </section>
+            <section id="formacoes" class="secao">
+                <h2><i class="fas fa-graduation-cap section-icon"></i> Formações Acadêmicas</h2>
+                <button class="btn-formacoes" onclick="toggleDescription('formacoes')"><i class="fas fa-graduation-cap"></i> Ver Formações</button>
+                <div id="formacoes-frase" class="descricao">
+                    <div class="formacao">
+                        <h3>Bacharelado em Sistemas da Informação</h3>
+                        <p>Formação superior com ênfase em desenvolvimento de sistemas, bancos de dados e programação.</p>
+                    </div>
+                    <div class="formacao">
+                        <h3>Técnico em Robótica/Engenharia Mecatrônica</h3>
+                        <p>Formação técnica com foco em robótica, automação e engenharia de sistemas mecânicos e eletrônicos.</p>
+                    </div>
+                    <div class="formacao">
+                        <h3>Técnico em TI</h3>
+                        <p>Curso técnico focado no desenvolvimento e manutenção de sistemas de TI, redes e infraestrutura.</p>
+                    </div>
+                    <div class="formacao">
+                        <h3>Política de Tecnologia Sustentável</h3>
+                        <p>Engajamento com práticas e soluções tecnológicas sustentáveis, alinhando inovação com preservação ambiental.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="habilidades" class="secao">
+                <h2><i class="fas fa-cogs section-icon"></i>Habilidades</h2>
+                <button class="btn-habilidades" onclick="toggleDescription('habilidades')"><i class="fas fa-lightbulb"></i></button>
+                <div id="habilidades-frase" class="descricao">
+                    <p>Minhas habilidades incluem conhecimento avançado em diversas linguagens, aprendizado rápido e excelente trabalho em equipe. Sou capaz de me adaptar rapidamente a novas tecnologias e colaborar de forma eficiente com equipes de desenvolvimento.</p>
+                </div>
+            </section>
+
+            <section id="contato" class="secao">
+                <h2><i class="fas fa-phone section-icon"></i>Contato</h2>
+                <button class="btn-contato" onclick="toggleDescription('contato')"><i class="fas fa-phone"></i></button>
+                <div id="contato-frase" class="descricao">
+                    <div class="contato-links">
+                        <p><a href="https://wa.me/5562995552251" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></p>
+                        <p><a href="https://www.instagram.com/ganadunny13/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></p>
+                        <p><a href="https://www.linkedin.com/in/gabriela-alves-rodrigues-464667250" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></p>
+                        <p><a href="mailto:ganatexblx@gmail.com"><i class="fas fa-envelope"></i> Email</a></p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="github" class="secao">
+                <h2><i class="fab fa-github section-icon"></i>GitHub</h2>
+                <button class="btn-github" onclick="window.open('https://github.com/ganadunny13?tab=repositories', '_blank')"><i class="fab fa-github"></i></button>
+            </section>
+        </div>
+
+        <!-- Seção de Projetos -->
+        <section id="projetos">
+            <h2>Últimos Projetos</h2> 
+
+            <div class="projetos">
+                <div class="projeto">
+                    <h3>Chatbot com Inteligência Artificial</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-comments"></i></button>
+                    <p>Desenvolvi um chatbot utilizando Python e IA para automatizar respostas e interações com usuários...</p>
+                </div>
+                <div class="projeto">
+                    <h3>Marketplace de Produtos Digitais</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-shopping-cart"></i></button>
+                    <p>Criei um marketplace para compra e venda de produtos digitais, com sistema de pagamento integrado...</p>
+                </div>
+                <div class="projeto">
+                    <h3>Plataforma de Cursos Online</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-laptop-code"></i></button>
+                    <p>Desenvolvi uma plataforma de cursos online com sistema de login, progresso do aluno e certificados...</p>
+                </div>
+            </div>
+
+            <div class="projetos">
+                <div class="projeto">
+                    <h3>API de Autenticação Segura</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-lock"></i></button>
+                    <p>Desenvolvi uma API de autenticação segura utilizando Django Rest Framework...</p>
+                </div>
+                <div class="projeto">
+                    <h3>Dashboard Interativo</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-chart-line"></i></button>
+                    <p>Criei um dashboard dinâmico com JavaScript e APIs para visualização de dados...</p>
+                </div>
+                <div class="projeto">
+                    <h3>Aplicativo de Lista de Tarefas</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-tasks"></i></button>
+                    <p>Desenvolvi um app de lista de tarefas em React, permitindo organização personalizada...</p>
+                </div>
+            </div>
+
+            <div class="projetos">
+                <div class="projeto">
+                    <h3>Manutenção em Site Existente</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-graduation-cap"></i></button>
+                    <p>Realizei a manutenção de um site já existente, corrigindo erros de layout, otimização e responsividade...</p>
+                </div>
+                <div class="projeto">
+                    <h3>Correção de Bugs em Banco Virtual de Dinheiro</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-cogs"></i></button>
+                    <p>Corrigi bugs em um sistema de pagamento similar ao PayPal...</p>
+                </div>
+                <div class="projeto">
+                    <h3>Desenvolvimento de Jogos com Python</h3>
+                    <button onclick="toggleProjectDescription(this)"><i class="fas fa-gamepad"></i></button>
+                    <p>Criei jogos simples usando Python, implementando lógica de programação...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de "O Código é a Minha Arte" -->
+        <div class="background-image">
+            <h2>O Código é a Minha Arte</h2>
+            <p>Eu crio soluções, uma linha de código de cada vez.</p>
+        </div>
+
+        <footer>
+            <p>© 2025 Gabriela Alves Rodrigues. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Função para mostrar ou ocultar a descrição ao clicar no botão
+        function toggleDescription(section) {
+            const description = document.getElementById(section + '-frase');
+            const button = description.previousElementSibling;
+            description.style.display = (description.style.display === "none" || description.style.display === "") ? "block" : "none";
+        }
+
+        // Função para mostrar ou ocultar a descrição dos projetos
+        function toggleProjectDescription(button) {
+            const description = button.nextElementSibling;
+            description.style.display = (description.style.display === "none" || description.style.display === "") ? "block" : "none";
+        }
+
+        // Ao carregar a página, as descrições começam fechadas
+        document.addEventListener("DOMContentLoaded", function() {
+            const descriptions = document.querySelectorAll('.descricao');
+            descriptions.forEach(function(description) {
+                description.style.display = "none";
+            });
+        });
+    </script>
+
+</body>
+</html>
