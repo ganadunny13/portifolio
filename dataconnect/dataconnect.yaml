@@ -1,0 +1,12 @@
+specVersion: "v1"
+serviceId: "portifolio"
+location: "southamerica-east1"
+schema:
+  source: "./schema"
+  datasource:
+    postgresql:
+      database: "postgres"
+      cloudSql:
+        instanceId: "portifolio-2fdb8-fdc"
+      # schemaValidation: "COMPATIBLE"
+connectorDirs: ["./connector"]
